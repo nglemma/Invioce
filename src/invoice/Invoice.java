@@ -59,21 +59,28 @@ public class Invoice
     double amount;
     public double getInvoiceAmount()
     {
-        if(quantity <= 0 )
+        if(getQuantity() <= 0 )
         {
             quantity=0;
-            System.out.println("Please enter a figure greater than zero(0)");
+            System.out.println("Please enter a quantity greater than zero(0)");
         }
-        else if(price<=0.0)
+        else if(getPrice()<=0.0)
         {
             price = 0;
             System.out.println("Please enter a price greater than zero(0)");
         }
         else
         {
-            amount = quantity * price;
+            amount = getQuantity() * getPrice();
+            System.out.printf("Part Number\n%s\n",getPartNumber());
+            System.out.println();
+            System.out.printf("Part Description\n%s\n",getPartDescription());
+            System.out.println();
+            System.out.printf("Quantity purchased\n%d\n",getQuantity());
+            System.out.println();
+            System.out.printf("Price\n%f\n",getPrice());
+            System.out.println(); 
             System.out.printf("Total amount for goods purchased is\n%.2f\n ",amount);
-            
         }
       return amount;
     }
